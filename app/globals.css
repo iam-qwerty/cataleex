@@ -1,0 +1,136 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Theme & Typography */
+@layer base {
+  :root {
+    --background: 225 30% 8%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 262 83% 58%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 217 32% 17%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 32% 17%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 232 73% 65%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 32% 17%;
+    --input: 217 32% 17%;
+    --ring: 224 76% 48%;
+    
+    --radius: 0.75rem;
+
+    --sidebar-background: 240 6% 10%;
+    --sidebar-foreground: 240 5% 96%;
+    --sidebar-primary: 224 76% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 4% 16%;
+    --sidebar-accent-foreground: 240 5% 96%;
+    --sidebar-border: 240 4% 16%;
+    --sidebar-ring: 217 91% 60%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-bold;
+  }
+
+  h1 { @apply text-4xl md:text-5xl lg:text-6xl; }
+  h2 { @apply text-3xl md:text-4xl; }
+  h3 { @apply text-2xl md:text-3xl; }
+  p  { @apply text-base md:text-lg; }
+}
+
+/* Custom Components */
+@layer components {
+  .neon-border {
+    @apply relative before:absolute before:inset-0 before:rounded-xl before:p-[2px] before:bg-gradient-to-r before:from-neon-blue before:to-neon-purple before:opacity-70 before:blur-sm before:-z-10;
+  }
+
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-lg border border-white/10 shadow-xl;
+  }
+
+  .grid-bg {
+    @apply bg-grid-pattern bg-[length:40px_40px];
+  }
+
+  .cta-button {
+    @apply px-6 py-3 bg-gradient-to-r from-neon-purple to-neon-blue rounded-full font-heading font-bold text-white shadow-lg hover:shadow-neon-purple/20 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1;
+  }
+
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+
+  .observable-element {
+    @apply opacity-0;
+  }
+
+  .observable-element.fade-in-element {
+    @apply animate-fade-in;
+  }
+
+  .observable-element.fade-in-right-element {
+    @apply animate-fade-in-right;
+  }
+
+  .observable-element.fade-in-left-element {
+    @apply animate-fade-in-left;
+  }
+}
+
+/* Utilities & Effects */
+.particle {
+  position: absolute;
+  border-radius: 50%;
+}
+
+@keyframes particles-float {
+  0%, 100% { transform: translateY(0) translateX(0); }
+  25% { transform: translateY(-30px) translateX(15px); }
+  50% { transform: translateY(-10px) translateX(30px); }
+  75% { transform: translateY(15px) translateX(-25px); }
+}
+
+.glow-effect {
+  box-shadow: 0 0 15px theme('colors.neon.purple');
+}
+
+.glow-text {
+  text-shadow: 0 0 10px theme('colors.neon.purple');
+}
+
+.network-line {
+  stroke: theme('colors.neon.blue');
+  stroke-width: 0.5;
+  stroke-dasharray: 10;
+  stroke-dashoffset: 1000;
+  animation: network-flow 20s linear infinite;
+}
