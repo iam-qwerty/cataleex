@@ -43,7 +43,7 @@ export default function Header() {
             href="/"
             className="bg-clip-text text-transparent bg-gradient-to-r from-neon-purple to-neon-blue hover:from-neon-blue hover:to-neon-purple transition-all duration-300"
           >
-            Web3Grow
+            Cataleex
           </Link>
         </motion.div>
 

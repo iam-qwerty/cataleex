@@ -23,7 +23,7 @@ export const clients: Client[] = [
     {
         id: 3,
         name: "Injective Protocol",
-        logo: "https://images.unsplash.com/photo-1621761191319-c6fb62004040?w=200&h=100&fit=crop&crop=center",
+        logo: "https://creatorspace.imgix.net/sites/favicons/aHR0cDovL2luamVjdGl2ZS5jb20vZmF2aWNvbi5pY28=.ico?fm=png",
         website: "https://injective.com/",
     },
     {
