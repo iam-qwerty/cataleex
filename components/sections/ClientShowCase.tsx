@@ -2,99 +2,26 @@
 import React from "react";
 import { motion } from "framer-motion";
 import FadeInSection from "../animations/FadeInSection";
-import GlassCard from "../ui/GlassCard";
-// import FloatingElements from "../ui/FloatingElements";
+
 import GlowOrbs from "../ui/GlowOrbs";
-import { ExternalLink } from "lucide-react";
+
 import { Client, clients } from "@/lib/data";
+import ClientsColumn from "../ui/clients-column";
 
 
-// Create animated column component
-const ClientsColumn = ({ 
-  clients, 
-  className, 
-  duration = 15 
-}: { 
-  clients: Client[]; 
-  className?: string; 
-  duration?: number; 
-}) => {
-  return (
-    <div className={className}>
-      <motion.div
-        animate={{
-          translateY: "-50%",
-        }}
-        transition={{
-          duration: duration,
-          repeat: Infinity,
-          ease: "linear",
-          repeatType: "loop",
-        }}
-        className="flex flex-col gap-6 pb-6"
-      >
-        {/* Duplicate the clients array to create seamless loop */}
-        {[...Array(2)].fill(0).map((_, index) => (
-          <React.Fragment key={index}>
-            {clients.map((client) => (
-              <motion.a
-                key={`${client.id}-${index}`}
-                href={client.website}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block"
-                whileHover={{ scale: 1.02, y: -5 }}
-                transition={{ duration: 0.3 }}
-              >
-                <GlassCard className="p-6 group cursor-pointer overflow-hidden relative max-w-xs w-full">
-                  {/* Card background animation */}
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-neon-blue/5 to-neon-purple/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                    initial={false}
-                  />
-                  
-                  <div className="relative z-10">
-                    {/* Logo Container */}
-                    <div className="mb-4 h-16 flex items-center justify-center relative overflow-hidden rounded-lg bg-white/5 group-hover:bg-white/10 transition-all duration-300">
-                      <motion.img 
-                        src={client.logo} 
-                        alt={`${client.name} logo`} 
-                        className="max-h-10 max-w-24 object-contain filter brightness-0 invert group-hover:filter-none transition-all duration-300"
-                        whileHover={{ scale: 1.1 }}
-                      />
-                    </div>
-                    
-                    {/* Client Info */}
-                    <div className="text-center">
-                      <h3 className="text-lg font-bold mb-2 text-white group-hover:text-neon-blue transition-colors duration-300">
-                        {client.name}
-                      </h3>
-                      {/* <p className="text-gray-400 text-sm mb-3 group-hover:text-gray-300 transition-colors duration-300">
-                        {client.description}
-                      </p> */}
-                      
-                      {/* Visit Link */}
-                      <div className="flex items-center justify-center gap-2 text-neon-purple group-hover:text-neon-blue transition-colors duration-300">
-                        <span className="text-xs font-medium">Visit</span>
-                        <ExternalLink size={12} />
-                      </div>
-                    </div>
-                  </div>
-                </GlassCard>
-              </motion.a>
-            ))}
-          </React.Fragment>
-        ))}
-      </motion.div>
-    </div>
-  );
-};
+
 
 const ClientShowcase = () => {
-  // Split clients into columns
-  const firstColumn = clients.slice(0, 2);
-  const secondColumn = clients.slice(2, 4);
-  const thirdColumn = clients.slice(4, 6);
+  const showcaseClients = clients.slice(0, 6);
+
+  const columns = React.useMemo(() => {
+    const numColumns = 3;
+    const columns = Array.from({ length: numColumns }, (): Client[] => []);
+    showcaseClients.forEach((client, i) => {
+      columns[i % numColumns].push(client);
+    });
+    return columns;
+  }, [showcaseClients]);
 
   return (
     <section id="clients" className="relative py-24 bg-gradient-to-b from-black via-gray-900 to-black overflow-hidden">
@@ -134,11 +61,15 @@ const ClientShowcase = () => {
           </div>
         </FadeInSection>
 
-        {/* Animated Columns Layout */}
         <div className="flex justify-center gap-6 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)] max-h-[600px] overflow-hidden">
-          <ClientsColumn clients={firstColumn} duration={20} />
-          <ClientsColumn clients={secondColumn} className="hidden md:block" duration={25} />
-          <ClientsColumn clients={thirdColumn} className="hidden lg:block" duration={22} />
+          {columns.map((column, index) => (
+            <ClientsColumn
+              key={index}
+              clients={column}
+              duration={20 + index * 5}
+              className={index > 0 ? (index === 1 ? "hidden md:flex" : "hidden lg:flex") : "flex"}
+            />
+          ))}
         </div>
         
         {/* Enhanced Trust Indicators */}

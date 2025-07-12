@@ -5,19 +5,19 @@ import GlassCard from "../ui/GlassCard";
 import Image from "next/image";
 
 const teamMembers = [
-  {
-    id: 1,
-    name: "Veer",
-    role: "Co-founder & CEO",
-    bio: "Visionary leader with expertise in strategic growth and client relations.",
-    avatar: "https://picsum.photos/id/1005/200"
-  },
+  // {
+  //   id: 1,
+  //   name: "Veer",
+  //   role: "Co-founder & CEO",
+  //   bio: "Visionary leader with expertise in strategic growth and client relations.",
+  //   avatar: "https://picsum.photos/id/1005/200"
+  // },
   {
     id: 2,
     name: "Oladotun",
-    role: "Co-founder & CMO",
+    role: "Founder & CMO",
     bio: "Blockchain marketing specialist dedicated to community-first strategies.",
-    avatar: "https://picsum.photos/id/1012/200"
+    avatar: "/portrait.png"
   },
 ];
 
@@ -33,12 +33,12 @@ const TeamSection = () => {
               </span>
             </h2>
             <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-              Meet the experts behind Cataleex&apos;s innovative community growth strategies
+              Meet the expert behind Cataleex&apos;s innovative community growth strategies
             </p>
           </div>
         </FadeInSection>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className={teamMembers.length === 1 ? 'flex justify-center' : 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'}>
           {teamMembers.map((member, index) => (
             <FadeInSection key={member.id} delay={index * 0.1}>
               <GlassCard className="p-6 text-center">
