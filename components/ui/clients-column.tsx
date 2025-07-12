@@ -30,13 +30,13 @@ const ClientCard = ({ client }: { client: Client }) => {
 
   return (
     <motion.a
-      href={client.website}
+      href={client.url}
       target="_blank"
       rel="noopener noreferrer"
       className="block group relative w-full max-w-xs h-80 rounded-2xl overflow-hidden bg-gray-900/50 border border-white/10"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      whileHover={{ scale: 1.02, y: -5, shadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)" }}
+      whileHover={{ scale: 1.02, y: -5 }}
       transition={{ duration: 0.4, ease: "easeOut" }}
     >
       <motion.div
@@ -59,9 +59,9 @@ const ClientCard = ({ client }: { client: Client }) => {
           {client.name}
         </h3>
         
-        <p className="text-gray-400 text-sm mb-4 group-hover:text-gray-300 transition-colors duration-300 h-10">
+        {/* <p className="text-gray-400 text-sm mb-4 group-hover:text-gray-300 transition-colors duration-300 h-10">
           {client.description}
-        </p>
+        </p> */}
         
         <div className="flex items-center justify-center gap-2 text-neon-purple group-hover:text-neon-blue transition-colors duration-300 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0">
           <span className="text-xs font-medium uppercase tracking-wider">Visit Website</span>
@@ -90,7 +90,7 @@ const ClientsColumn = ({
         className="flex flex-col gap-6 pb-6"
       >
         {[...clients, ...clients].map((client, index) => (
-          <ClientCard key={`${client.id}-${index}`} client={client} />
+          <ClientCard key={`${client.name}-${index}`} client={client} />
         ))}
       </motion.div>
     </div>

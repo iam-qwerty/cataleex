@@ -34,7 +34,7 @@ export default function RootLayout({
         className={`${montserrat.variable} ${openSans.variable} antialiased bg-black`}
       >
         {children}
-        <TwentyFirstToolbar config={{ plugins: [ReactPlugin] }} /> /* For 21st.dev */
+        <TwentyFirstToolbar config={{ plugins: [ReactPlugin] }} /> {/* For 21st.dev */}
       </body>
     </html>
   );
