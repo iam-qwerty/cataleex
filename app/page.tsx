@@ -6,7 +6,6 @@ import ServicesSection from "@/components/homepage/services";
 import ProcessSection from "@/components/homepage/process";
 import TeamSection from "@/components/homepage/team";
 import WhyUsSection from "@/components/homepage/why-us";
-import ClientShowcase from "@/components/homepage/client-showcase";
 import BlogSection from "@/components/homepage/blog";
 import CtaSection from "@/components/homepage/cta";
 import ContactSection from "@/components/homepage/contact";
@@ -22,7 +21,6 @@ export default function Home() {
       <AboutSection />
       <ProcessSection />
       <LogoMarquee />
-      <ClientShowcase />
       <TeamSection />
       <TestimonialsSection />
       <WhyUsSection />
