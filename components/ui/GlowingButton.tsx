@@ -23,7 +23,7 @@ const GlowingButton = ({
 }: GlowingButtonProps) => {
   
   // Base classes
-  const baseClasses = "relative overflow-hidden rounded-full font-heading font-bold transition-all duration-300";
+  const baseClasses = "relative overflow-hidden rounded-xl font-heading font-bold transition-all duration-300";
   
   // Size classes
   const sizeClasses = {

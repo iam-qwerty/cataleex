@@ -41,7 +41,7 @@ const blogPosts = [
 
 const BlogSection = () => {
   return (
-    <section id="blog" className="relative py-24 bg-gradient-to-b from-gray-900 via-black to-gray-900 overflow-hidden">
+    <section id="blog" className="relative py-24 bg-gradient-to-b from-gray-900 via-black to-gray-900 overflow-hidden px-2 md:px-16">
       {/* Enhanced decorative elements */}
       <FloatingElements variant="squares" count={8} />
       

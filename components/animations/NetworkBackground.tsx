@@ -1,10 +1,11 @@
 // components/NetworkBackground.tsx
 'use client'
 
-import { useEffect, useRef, useCallback } from 'react'
+import { useEffect, useRef, useCallback, useState } from 'react'
 
 export default function NetworkBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
+  const [isClient, setIsClient] = useState(false)
 
   const initializeCanvas = useCallback(() => {
     const canvas = canvasRef.current
@@ -17,6 +18,10 @@ export default function NetworkBackground() {
   }, [])
 
   useEffect(() => {
+    // Prevent hydration issues by only running on client
+    setIsClient(true)
+    if (!isClient || typeof window === 'undefined') return
+
     const canvasData = initializeCanvas()
     if (!canvasData) return
 
@@ -24,8 +29,10 @@ export default function NetworkBackground() {
 
     // Helper to resize
     const updateSize = () => {
-      canvas.width = window.innerWidth
-      canvas.height = window.innerHeight
+      if (typeof window !== 'undefined') {
+        canvas.width = window.innerWidth
+        canvas.height = window.innerHeight
+      }
     }
     updateSize()
 
@@ -119,8 +126,10 @@ export default function NetworkBackground() {
       init()
     }
 
-    // Event listeners
-    window.addEventListener('resize', handleResize, { passive: true })
+    // Event listeners - only add on client
+    if (typeof window !== 'undefined') {
+      window.addEventListener('resize', handleResize, { passive: true })
+    }
     
     // Initialize and start
     init()
@@ -128,12 +137,14 @@ export default function NetworkBackground() {
 
     // Cleanup function
     return () => {
-      window.removeEventListener('resize', handleResize)
+      if (typeof window !== 'undefined') {
+        window.removeEventListener('resize', handleResize)
+      }
       if (rafId) {
         cancelAnimationFrame(rafId)
       }
     }
-  }, [initializeCanvas])
+  }, [initializeCanvas, isClient])
 
   return (
     <canvas 

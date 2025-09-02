@@ -24,7 +24,7 @@ const ClientShowcase = () => {
   }, [showcaseClients]);
 
   return (
-    <section id="clients" className="relative py-24 bg-gradient-to-b from-black via-gray-900 to-black overflow-hidden">
+    <section id="clients" className="relative py-24 bg-gradient-to-b from-black via-gray-900 to-black overflow-hidden px-2 md:px-16">
       {/* Enhanced decorative elements */}
       {/* <FloatingElements variant="mixed" count={10} /> */}
       <GlowOrbs count={4} />

@@ -37,7 +37,7 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="relative py-24 bg-gradient-to-b from-black to-gray-900 overflow-hidden">
+    <section id="contact" className="relative py-24 bg-gradient-to-b from-black to-gray-900 overflow-hidden px-2 md:px-16">
       <div className="container mx-auto px-4">
         <FadeInSection>
           <div className="text-center mb-16">
@@ -181,12 +181,12 @@ const ContactSection = () => {
                 
                 <div className="flex gap-4">
                   <motion.a 
-                    href="#"
+                    href="https://www.linkedin.com/in/oladotun-akangbe"
                     className="bg-white/5 hover:bg-white/10 transition-colors p-3 rounded-full"
                     whileHover={{ y: -5 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <Linkedin className="text-neon-blue w-6 h-6" />
+                      <Linkedin className="text-neon-blue w-6 h-6" /> 
                   </motion.a>
                   
                   <motion.a 

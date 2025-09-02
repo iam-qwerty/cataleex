@@ -1,28 +1,28 @@
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import HeroSection from "@/components/sections/HeroSection";
-import AboutSection from "@/components/sections/AboutSection";
-import ServicesSection from "@/components/sections/ServicesSection";
-import ProcessSection from "@/components/sections/ProcessSection";
-import TeamSection from "@/components/sections/TeamSection";
-import WhyUsSection from "@/components/sections/WhyUsSection";
-import ClientShowcase from "@/components/sections/ClientShowCase";
-import BlogSection from "@/components/sections/BlogSection";
-import CtaSection from "@/components/sections/CtaSection";
-import ContactSection from "@/components/sections/ContactSection";
-import TestimonialsSection from "@/components/sections/TestimonialsSection";
-// import ClientShowcaseDemo from "@/components/sections/ClientSection";
+import Hero from "@/components/homepage/hero";
+import AboutSection from "@/components/homepage/about";
+import ServicesSection from "@/components/homepage/services";
+import ProcessSection from "@/components/homepage/process";
+import TeamSection from "@/components/homepage/team";
+import WhyUsSection from "@/components/homepage/why-us";
+import ClientShowcase from "@/components/homepage/client-showcase";
+import BlogSection from "@/components/homepage/blog";
+import CtaSection from "@/components/homepage/cta";
+import ContactSection from "@/components/homepage/contact";
+import TestimonialsSection from "@/components/homepage/testimonials";
+import { LogoMarquee } from "@/components/homepage/logo-marquee";
 
 export default function Home() {
   return (
     <>
       <Header />
-      <HeroSection />
+      <Hero />
       <ServicesSection />
       <AboutSection />
       <ProcessSection />
+      <LogoMarquee />
       <ClientShowcase />
-      {/* <ClientShowcaseDemo /> */}
       <TeamSection />
       <TestimonialsSection />
       <WhyUsSection />

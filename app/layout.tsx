@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Montserrat, Open_Sans } from "next/font/google";
 import "./globals.css";
-import { TwentyFirstToolbar } from "@21st-extension/toolbar-next"; // For 21st.dev
-import { ReactPlugin } from "@21st-extension/react";  // For 21st.dev
+// import { TwentyFirstToolbar } from "@21st-extension/toolbar-next"; // For 21st.dev
+// import { ReactPlugin } from "@21st-extension/react";  // For 21st.dev
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -34,7 +34,7 @@ export default function RootLayout({
         className={`${montserrat.variable} ${openSans.variable} antialiased bg-black`}
       >
         {children}
-        <TwentyFirstToolbar config={{ plugins: [ReactPlugin] }} /> {/* For 21st.dev */}
+        {/* <TwentyFirstToolbar config={{ plugins: [ReactPlugin] }} /> For 21st.dev */}
       </body>
     </html>
   );

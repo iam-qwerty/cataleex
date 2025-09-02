@@ -23,7 +23,7 @@ const teamMembers = [
 
 const TeamSection = () => {
   return (
-    <section id="team" className="relative py-24 bg-gradient-to-b from-black via-gray-900 to-black overflow-hidden">
+    <section id="team" className="relative py-24 bg-gradient-to-b from-black via-gray-900 to-black overflow-hidden px-2 md:px-16">
       <div className="container mx-auto px-4">
         <FadeInSection>
           <div className="text-center mb-16">

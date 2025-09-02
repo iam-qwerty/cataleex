@@ -86,7 +86,7 @@ html {
   }
 
   .cta-button {
-    @apply px-6 py-3 bg-gradient-to-r from-neon-purple to-neon-blue rounded-full font-heading font-bold text-white shadow-lg hover:shadow-neon-purple/20 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1;
+    @apply px-6 py-3 bg-gradient-to-r from-neon-purple to-neon-blue rounded-md font-heading font-bold text-white shadow-lg hover:shadow-neon-purple/20 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1;
   }
 
   .section-padding {
@@ -137,4 +137,40 @@ html {
   stroke-dasharray: 10;
   stroke-dashoffset: 1000;
   animation: network-flow 20s linear infinite;
+}
+
+/* Logo Marquee Animations */
+@keyframes scroll-right {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-33.333%);
+  }
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(-33.333%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-scroll-right {
+  animation: scroll-right 30s linear infinite;
+}
+
+.animate-scroll-left {
+  animation: scroll-left 30s linear infinite;
+}
+
+/* Glass effect variants for buttons */
+.liquid-glass {
+  @apply bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/15 transition-all duration-300;
+}
+
+.liquid-glass-enhanced {
+  @apply bg-gradient-to-r from-white/10 to-white/5 backdrop-blur-lg border border-white/30 shadow-lg hover:shadow-white/10;
 }
