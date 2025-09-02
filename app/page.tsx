@@ -7,7 +7,7 @@ import ProcessSection from "@/components/homepage/process";
 import TeamSection from "@/components/homepage/team";
 import WhyUsSection from "@/components/homepage/why-us";
 import BlogSection from "@/components/homepage/blog";
-import CtaSection from "@/components/homepage/cta";
+// import CtaSection from "@/components/homepage/cta";
 import ContactSection from "@/components/homepage/contact";
 import TestimonialsSection from "@/components/homepage/testimonials";
 import { LogoMarquee } from "@/components/homepage/logo-marquee";
@@ -26,7 +26,7 @@ export default function Home() {
       <WhyUsSection />
       <BlogSection />
       <ContactSection />
-      <CtaSection />
+      {/* <CtaSection /> */}
       <Footer />
     </>
   );
